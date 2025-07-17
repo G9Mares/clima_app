@@ -3,9 +3,5 @@
 
 
 @theme {
-    --color-principal:rgba(52, 59, 57, 0.584);
-    --color-background:rgba(52, 59, 57, 0.584);
-}
-.color{
-    color: rgba(52, 59, 57, 0.584);
+    --color-background:rgba(84, 92, 90, 0.584);
 }
