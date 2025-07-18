@@ -1,5 +1,5 @@
 <div class="bg-background">
-<div class="  border-b-1 border-white flex px-2 gap-3 justify-between">
+<div class=" items-center border-b-1 border-white flex px-2 gap-3 justify-between">
     <div action="" class="my-1  text-white  bg-backgroundB flex items-center border-b border-white">
         <input [formControl]="cityControl"  name="city" type="text" class=" outline-none pl-2 w-[80%]  ">
         <mat-icon aria-hidden="false" class="" aria-label="Example home icon" fontIcon="edit"></mat-icon>
@@ -7,6 +7,9 @@
             
         
     </div>
+    @if (msgError) {
+        <h1 class="bg-backgroundD text-white text-[20px] px-5" >{{msgError}} </h1>
+    }
     <button (click)="refreshData()" class="bg-backgroun border hover:bg-backgroundC hover:cursor-pointer my-1 px-4 text-white">Buscar</button>
 </div>
 </div>

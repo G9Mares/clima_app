@@ -5,6 +5,7 @@
     --color-var:rgba(84, 92, 90, 0.584);
     --color-varB:rgba(123, 127, 126, 0.379);
     --color-varC:rgba(214, 228, 188, 0.379);
+    --color-varD:rgba(231, 123, 123, 0.379);;
 }
 
 
@@ -12,10 +13,11 @@
     --color-background:var(--color-var);
     --color-backgroundB:var(--color-varB);
     --color-backgroundC:var(--color-varC);
+    --color-backgroundD:var(--color-varD);
 }
 
 .color{
-    color:rgba(214, 228, 188, 0.379);
+    color:rgba(231, 123, 123, 0.379);
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

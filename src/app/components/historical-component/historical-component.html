@@ -1,4 +1,9 @@
-<div class="w-[100%] h-[100%] flex flex-col py-3 px-5 items-center">
+<div class="w-[100%] h-[100%] flex flex-col py-3 px-5 items-center relative">
+    @if (errorMsg) {
+        <div class="absolute w-[100%] h-[100%] bg-backgroundD flex items-center justify-center -translate-y-3 backdrop-blur-md">
+            <h1 class="text-white text-[24px]">{{errorMsg}} </h1>
+        </div>
+    }
     <img src="/images.png" class="hidden md:w-[150px] md:block"  alt="">
     <div class="flex  border-b text-white md:mt-3 w-[100%] items-center justify-center gap-2 py-1 rounded-t-md">
         <mat-icon aria-hidden="false" color="white" aria-label="icono historico" fontIcon="history"></mat-icon>
