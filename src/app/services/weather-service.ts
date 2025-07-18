@@ -1,7 +1,7 @@
 import {  Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environments } from '../environments/enviroments';
-import { HistoricalResponseModel} from '../models/weatherModels';
+import { HistoricalResponseModel, WeatherModel, ResponseModelCity} from '../models/weatherModels';
 import { Observable, Subject} from 'rxjs';
 
 
@@ -11,17 +11,20 @@ import { Observable, Subject} from 'rxjs';
 
 
 export class WeatherService {
-  private refreshData:Subject<void> = new Subject()
+  private refreshData:Subject<string> = new Subject()
   constructor(private http:HttpClient){}
 
 
   refreshData$ = this.refreshData.asObservable();
 
-  triggerRefresh() {
-    this.refreshData.next();
+  triggerRefresh(city:string) {
+    this.refreshData.next(city);
   }
   
-  
+  getCityInfo(city:string):Observable<ResponseModelCity>{
+    return this.http.get<ResponseModelCity>(environments.apiWeather+"/weather?city="+city)
+  }
+
   getHistoricalInfo():Observable<HistoricalResponseModel>{
     return this.http.get<HistoricalResponseModel>(environments.apiWeather+"/history")
   }

@@ -11,6 +11,12 @@ export interface HistoricalResponseModel {
     data?:WeatherModel[]
 }
 
+export interface ResponseModelCity {
+    status:number
+    error?:string
+    data?:WeatherModel
+}
+
 export class WeatherModel {
     contry:string = ""
     city:string = "Busca una nueva ciudad"
@@ -22,6 +28,7 @@ export class WeatherModel {
     wind_kph:string = "-"
 
 }
+
 type WeatherKey = keyof WeatherModel
 export interface WeatherPropertyModel {
     clave:WeatherKey

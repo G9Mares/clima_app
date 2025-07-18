@@ -1,4 +1,4 @@
-import { Component, inject, OnInit} from '@angular/core';
+import { Component, CSP_NONCE, inject, OnInit} from '@angular/core';
 import { MatIconModule } from "@angular/material/icon"
 import { WeatherService } from '../../services/weather-service';
 import { WeatherModel, HistoricalResponseModel } from '../../models/weatherModels';
@@ -16,13 +16,17 @@ export class HistoricalComponent {
 
   ngOnInit(){
     this.getHistorical()
-    this.weatherSerice.refreshData$.subscribe(()=>{
-      this.getHistorical()
+    this.weatherSerice.refreshData$.subscribe((city)=>{
+      setTimeout(() => {
+        this.getHistorical()
+        
+      }, 2000);
     })
   }
 
   
   getHistorical(){
+    
     this.weatherSerice.getHistoricalInfo().subscribe({
       next:(response:HistoricalResponseModel)=>{
         if (response.error){
