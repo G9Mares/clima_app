@@ -1,11 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 
+:root {
+    --color-var:rgba(84, 92, 90, 0.584);
+    --color-varB:rgba(123, 127, 126, 0.379);
+    --color-varC:rgba(214, 228, 188, 0.379);
+}
+
 
 @theme {
-    --color-background:rgba(84, 92, 90, 0.584);
-    --color-backgroundB:rgba(123, 127, 126, 0.379);
-    --color-backgroundC:rgba(214, 228, 188, 0.379);
+    --color-background:var(--color-var);
+    --color-backgroundB:var(--color-varB);
+    --color-backgroundC:var(--color-varC);
 }
 
 .color{
@@ -13,3 +19,14 @@
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color:rgba(0, 0, 0, 0.272);
+  border-radius: 4px;
+}
+*::-webkit-scrollbar-track {
+  background-color:var(--color-var); 
+}
