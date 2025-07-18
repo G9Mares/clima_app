@@ -16,13 +16,19 @@ export class HistoricalComponent {
 
   ngOnInit(){
     this.getHistorical()
+    this.weatherSerice.refreshData$.subscribe(()=>{
+      this.getHistorical()
+    })
   }
+
+  
   getHistorical(){
     this.weatherSerice.getHistoricalInfo().subscribe({
       next:(response:HistoricalResponseModel)=>{
         if (response.error){
           return this.errorMsg = response.error
         }
+        
         return this.historical = response.data as WeatherModel[]
       },
       error:()=>{
