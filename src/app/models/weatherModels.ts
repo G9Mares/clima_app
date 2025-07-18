@@ -5,17 +5,21 @@ export interface HistoricalData {
     temperatura:string
 }
 
-
+export interface HistoricalResponseModel {
+    status:number
+    error?:string
+    data?:WeatherModel[]
+}
 
 export class WeatherModel {
-    contry:string = "Bergh"
-    city:string = "Ciudad gotica"
-    region:string = "Nuevo Toledo"
-    dateQuery:string = "2025-07-17 20:31"
-    temp_c:string = "27°"
-    condition:string = "Sunny"
-    humidity:string = "49"
-    wind_kph:string = "49 km/h"
+    contry:string = ""
+    city:string = "Busca una nueva ciudad"
+    region:string = ""
+    dateQuery:string = ""
+    temp_c:string = "-"
+    condition:string = "-"
+    humidity:string = "-"
+    wind_kph:string = "-"
 
 }
 type WeatherKey = keyof WeatherModel

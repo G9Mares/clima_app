@@ -1,7 +1,9 @@
-import { inject, Injectable } from '@angular/core';
+import {  Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environments } from '../environments/enviroments';
-import { HistoricalData } from '../models/weatherModels';
+import { HistoricalResponseModel} from '../models/weatherModels';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,28 +11,10 @@ import { HistoricalData } from '../models/weatherModels';
 
 
 export class WeatherService {
-  http = inject(HttpClient)
+  constructor(private http:HttpClient){}
 
-  dumbInfo:HistoricalData[] = [
-    {id:"1",ciudad:"CDMX",fecha:"10/05/2025",temperatura:"38"},
-    {id:"2",ciudad:"Queretaro",fecha:"10/05/2025",temperatura:"38"},
-    {id:"3",ciudad:"Celaya",fecha:"10/05/2025",temperatura:"38"},
-    {id:"4",ciudad:"Madrid",fecha:"10/05/2025",temperatura:"38"},
-    {id:"5",ciudad:"Uruapan",fecha:"10/05/2025",temperatura:"38"},
-    {id:"1",ciudad:"CDMX",fecha:"10/05/2025",temperatura:"38"},
-    {id:"2",ciudad:"Queretaro",fecha:"10/05/2025",temperatura:"38"},
-    {id:"3",ciudad:"Celaya",fecha:"10/05/2025",temperatura:"38"},
-    {id:"4",ciudad:"Madrid",fecha:"10/05/2025",temperatura:"38"},
-    {id:"5",ciudad:"Uruapan",fecha:"10/05/2025",temperatura:"38"},
-    {id:"1",ciudad:"CDMX",fecha:"10/05/2025",temperatura:"38"},
-    {id:"2",ciudad:"Queretaro",fecha:"10/05/2025",temperatura:"38"},
-    {id:"3",ciudad:"Celaya",fecha:"10/05/2025",temperatura:"38"},
-    {id:"4",ciudad:"Madrid",fecha:"10/05/2025",temperatura:"38"},
-    {id:"5",ciudad:"Uruapan",fecha:"10/05/2025",temperatura:"38"},
-  ] 
-
-  getHistoricalInfo(){
-    // this.http.get(environments.apiWeather)
-    return this.dumbInfo
+  
+  getHistoricalInfo():Observable<HistoricalResponseModel>{
+    return this.http.get<HistoricalResponseModel>(environments.apiWeather+"/history")
   }
 }

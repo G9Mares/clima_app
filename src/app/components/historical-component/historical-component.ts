@@ -1,7 +1,7 @@
 import { Component, inject, OnInit} from '@angular/core';
 import { MatIconModule } from "@angular/material/icon"
 import { WeatherService } from '../../services/weather-service';
-import { HistoricalData } from '../../models/weatherModels';
+import { WeatherModel, HistoricalResponseModel } from '../../models/weatherModels';
 
 @Component({
   selector: 'app-historical-component',
@@ -11,13 +11,24 @@ import { HistoricalData } from '../../models/weatherModels';
 })
 export class HistoricalComponent {
   weatherSerice = inject(WeatherService)
-  historical:HistoricalData[] = []
+  historical:WeatherModel[] = []
+  errorMsg:string = ""
 
   ngOnInit(){
     this.getHistorical()
   }
   getHistorical(){
-    this.historical = this.weatherSerice.getHistoricalInfo()
+    this.weatherSerice.getHistoricalInfo().subscribe({
+      next:(response:HistoricalResponseModel)=>{
+        if (response.error){
+          return this.errorMsg = response.error
+        }
+        return this.historical = response.data as WeatherModel[]
+      },
+      error:()=>{
+        return this.errorMsg = "Ocurrio un error inesperado en la app"
+      }
+    })
     
   }
 }
