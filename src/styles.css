@@ -4,4 +4,12 @@
 
 @theme {
     --color-background:rgba(84, 92, 90, 0.584);
+    --color-backgroundB:rgba(123, 127, 126, 0.379);
+    --color-backgroundC:rgba(214, 228, 188, 0.379);
 }
+
+.color{
+    color:rgba(214, 228, 188, 0.379);
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
