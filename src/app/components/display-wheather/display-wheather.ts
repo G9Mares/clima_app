@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { WeatherModel } from '../../models/weatherModels';
+import { WeatherPropertyModel } from '../../models/weatherModels';
 
 @Component({
   selector: 'app-display-wheather',
@@ -7,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrl: './display-wheather.css'
 })
 export class DisplayWheather {
+  weatherData:WeatherModel = new WeatherModel()
+
+  weatherFields:WeatherPropertyModel[] = [
+    {clave:"humedad", alias:"Humedad",img:"/humedad.png"},
+    {clave:"viento", alias:"Viento",img:"/viento.png"},
+    {clave:"condicion", alias:"Condicion",img:"/condicion.png"},
+    {clave:"temperatura", alias:"Temperatura C°",img:"/temperatura.png"},
+  ]
 
 }
