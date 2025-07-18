@@ -19,7 +19,7 @@ Este proyecto es una aplicación **Angular 20** diseñada como frontend para con
 1. **Clonar el repositorio**:
 
    ```bash
-   git clone https://github.com/tu_usuario/weather-angular.git
+   git clone https://github.com/G9Mares/clima_app.git
    cd weather-angular
    npm install
    ng serve
