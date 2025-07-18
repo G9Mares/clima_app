@@ -11,11 +11,13 @@ import { WeatherPropertyModel } from '../../models/weatherModels';
 export class DisplayWheather {
   weatherData:WeatherModel = new WeatherModel()
 
+  
+
   weatherFields:WeatherPropertyModel[] = [
-    {clave:"humedad", alias:"Humedad",img:"/humedad.png"},
-    {clave:"viento", alias:"Viento",img:"/viento.png"},
-    {clave:"condicion", alias:"Condicion",img:"/condicion.png"},
-    {clave:"temperatura", alias:"Temperatura C°",img:"/temperatura.png"},
+    {clave:"humidity", alias:"Humedad",img:"/humedad.png"},
+    {clave:"wind_kph", alias:"Viento",img:"/viento.png"},
+    {clave:"condition", alias:"Condicion",img:"/condicion.png"},
+    {clave:"temp_c", alias:"Temperatura C°",img:"/temperatura.png"},
   ]
 
 }

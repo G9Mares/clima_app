@@ -7,8 +7,9 @@
     </div>
     <div class="grow flex gap-2 flex-wrap overflow-auto basis">
         @for (propety of weatherFields; track $index) {
-            <div class=" text-center justify-around items-center md:w-[24%] h-[100%]  w-[45%] flex flex-col">
+            <div class="border border-white hover:bg-backgroundC rounded-sm text-center justify-around items-center md:w-[24%] h-[100%]  w-[45%] flex flex-col">
                 <img [src]="propety.img" class=" w-[70px] h-[50px]" draggable="false" alt="">
+                <span class="text-white text-[16px] md:text-[36px]">{{weatherData[propety.clave ]}}</span>
                 <h1 class="text-white font-semibold">{{propety.alias}}</h1>
                 
 
