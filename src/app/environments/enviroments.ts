@@ -1,3 +1,3 @@
 export const environments = {
-    apiWeather:"http://127.0.0.1:4002"
+    apiWeather:"https://u6kdbmngu4ycbs5rvcsv2mae3a0cisbj.lambda-url.us-east-2.on.aws/"
 }
